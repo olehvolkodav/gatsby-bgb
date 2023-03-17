@@ -3,14 +3,18 @@ import Layout from '../components/layout';
 import { Helmet } from 'react-helmet';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import useBrowser from '../hooks/useBrowser';
 
 const IndexPage = () => {
   let scrolled = false;
   let menuOpen = false;
   let lastScrollPos = 0;
   let tl = gsap.timeline();
+  const isBrowser = useBrowser();
 
   useEffect(() => {
+    if (!isBrowser) return;
+
     gsap.registerPlugin(ScrollTrigger);
     lastScrollPos = window.scrollY;
     initAnimation();
@@ -26,6 +30,8 @@ const IndexPage = () => {
     }
 
     function initAnimation() {
+      if (!isBrowser) return;
+
       var homeAdjustment;
       if (window.innerWidth >= 668) {
         homeAdjustment = Math.round((window.innerWidth / 1920) * 100) / 100;
@@ -112,6 +118,8 @@ const IndexPage = () => {
     // }
 
     function menuPosition() {
+      if (!isBrowser) return;
+
       if ((scrolled == false) & (window.scrollY > 100)) {
         scrolled = true;
         document.getElementById('nav').className = 'scrolled';
@@ -124,6 +132,8 @@ const IndexPage = () => {
     }
 
     function resizeHomepage() {
+      if (!isBrowser) return;
+
       let homeAdjustment;
       if (window.innerWidth >= 668) {
         homeAdjustment = Math.round((window.innerWidth / 1920) * 100) / 100;

@@ -1,23 +1,24 @@
-import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-
-const isBrowser = typeof window !== `undefined`;
-
-const getScrollPosition = ({ element, useWindow }) => {
-  if (!isBrowser) return { x: 0, y: 0 };
-
-  const target = element ? element.current : document.body,
-    position = target.getBoundingClientRect();
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top };
-};
+import useBrowser from '../hooks/useBrowser';
 
 export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
-  const position = useRef(getScrollPosition({ useWindow }));
+  const isBrowser = useBrowser();
   let throttleTimeout = null;
+
+  const getScrollPosition = ({ element, useWindow }) => {
+    if (!isBrowser) return { x: 0, y: 0 };
+
+    const target = element ? element.current : document.body,
+      position = target.getBoundingClientRect();
+
+    return useWindow
+      ? { x: window.scrollX, y: window.scrollY }
+      : { x: position.left, y: position.top };
+  };
+
+  const position = useRef(getScrollPosition({ useWindow }));
 
   const callBack = () => {
     const currentPosition = getScrollPosition({ element, useWindow });
@@ -31,6 +32,8 @@ export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
   };
 
   useLayoutEffect(() => {
+    if (!isBrowser) return;
+
     const handleScroll = () => {
       if (wait && !throttleTimeout)
         throttleTimeout = setTimeout(callBack, wait);

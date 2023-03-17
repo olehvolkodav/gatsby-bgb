@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import { Helmet } from 'react-helmet';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as LottiePlayer from '@lottiefiles/lottie-player';
+import useBrowser from '../hooks/useBrowser';
 
 const Capibilities = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +14,7 @@ const Capibilities = () => {
   const [menuSet3, setMenuSet3] = useState(false);
   const [menuSet4, setMenuSet4] = useState(false);
   const [percentDone, setPercentDone] = useState({ percent: 0 });
+  const isBrowser = useBrowser();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -124,6 +125,8 @@ const Capibilities = () => {
     }
 
     function isInViewport(element) {
+      if (!isBrowser) return;
+
       const rect = element.getBoundingClientRect();
       return (
         rect.top >= -10 &&
@@ -162,6 +165,8 @@ const Capibilities = () => {
     }
 
     function menuPosition() {
+      if (!isBrowser) return;
+
       if (scrolled === false && window.scrollY > 100) {
         setScrolled(true);
         document.getElementById('nav').className = 'scrolled';
