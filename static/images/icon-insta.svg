@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" viewBox="0 0 66 66">
+  <g id="icon-insta" transform="translate(-947 -5125)">
+    <g id="Group_12" data-name="Group 12" transform="translate(947.342 5125)">
+      <path id="Path_7" data-name="Path 7" d="M17.272,7.879H32.548a9.176,9.176,0,0,1,9.165,9.165V32.319a9.176,9.176,0,0,1-9.165,9.165H17.272a9.176,9.176,0,0,1-9.165-9.165V17.044A9.176,9.176,0,0,1,17.272,7.879ZM32.548,38.429a6.117,6.117,0,0,0,6.11-6.11V17.044a6.117,6.117,0,0,0-6.11-6.11H17.272a6.117,6.117,0,0,0-6.11,6.11V32.319a6.117,6.117,0,0,0,6.11,6.11Z" transform="translate(8.186 8.419)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8" data-name="Path 8" d="M20.207,24.5a4.606,4.606,0,0,0,2.06-.489,4.583,4.583,0,0,0,2.473-4.766,4.583,4.583,0,0,0-6.644-3.4,4.583,4.583,0,0,0,2.111,8.65Z" transform="translate(12.952 13.119)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_9" data-name="Path 9" d="M21.1,14.258h-.015a1.528,1.528,0,1,1,0-3.055H21.1a1.528,1.528,0,1,1,0,3.055Z" transform="translate(20.418 11.971)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(947 5125)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="33" cy="33" r="33" stroke="none"/>
+      <circle cx="33" cy="33" r="32.5" fill="none"/>
+    </g>
+  </g>
+</svg>
