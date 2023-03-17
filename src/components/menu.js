@@ -84,6 +84,9 @@ const Menu = () => {
           <Link to="/opportunities/">Opportunities</Link>
         </li>
         <li>
+          <Link to="/job-application/">Job Application</Link>
+        </li>
+        <li>
           <Link to="/connect/">Connect</Link>
         </li>
       </ul>
